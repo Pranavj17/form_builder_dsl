@@ -19,7 +19,7 @@ defmodule MyForm do
   defenum :status, [:active, :inactive, :archived]
 
   form :user do
-    text_field :name
-    select_field :status, options: status_labeled_options()
+    text :name
+    select :status, options: status_labeled_options()
   end
 end
