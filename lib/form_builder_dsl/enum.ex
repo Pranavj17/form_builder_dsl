@@ -10,6 +10,16 @@ defmodule FormBuilderDSL.Enum do
   @type enum_list :: [enum_value]
   @table :form_builder_dsl_enum_registry
 
+  def child_spec(_opts) do
+    %{
+      id: __MODULE__,
+      start: {__MODULE__, :start_link, [[]]},
+      type: :worker,
+      restart: :permanent,
+      shutdown: 500
+    }
+  end
+
   @doc """
   Starts the ETS table if not already started. Works in supervision trees.
   """
