@@ -1,4 +1,4 @@
-defmodule FormBuilderDsl.Macros do
+defmodule FormBuilderDSL.Macros do
   def formatter_macros do
     [
       form: 2,
