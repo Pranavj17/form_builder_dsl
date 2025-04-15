@@ -10,7 +10,7 @@ defmodule FormBuilderDSLTest do
   defmodule Enums do
     use FormBuilderDSL
 
-    defenum(:status, [:approved, :rejected, :pending])
+    defenum :status, [:approved, :rejected, :pending]
   end
 
   defmodule TestForm do
@@ -18,8 +18,8 @@ defmodule FormBuilderDSLTest do
     alias Enums
 
     form :test_form do
-      text(:id)
-      select(:status, options: Enums.status_labeled_options())
+      text :id
+      select :status, options: Enums.status_labeled_options()
     end
   end
 
