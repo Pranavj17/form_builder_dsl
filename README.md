@@ -1,20 +1,25 @@
 # FormBuilderDSL
 
-**TODO: Add description**
+A clean, minimal DSL for defining complex, dynamic forms in Elixir.
 
-## Installation
+This library allows developers to:
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `form_builder_dsl` to your list of dependencies in `mix.exs`:
+- Declaratively define text, select, checkbox fields, and more
+- Register and reuse enums
+- Automatically generate form metadata using structs
+- Extend input behavior with validations, options, conditions, and dynamic rendering
+- Use in LiveView, traditional views, APIs, or internal admin tools
+
+## Example
 
 ```elixir
-def deps do
-  [
-    {:form_builder_dsl, "~> 0.1.0"}
-  ]
-end
-```
+defmodule MyForm do
+  use FormBuilderDSL
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/form_builder_dsl>.
+  defenum :status, [:active, :inactive, :archived]
+
+  form :user do
+    text_field :name
+    select_field :status, options: status_labeled_options()
+  end
+end
