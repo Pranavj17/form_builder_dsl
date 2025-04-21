@@ -27,7 +27,7 @@ FormBuilderDSL helps teams write intuitive, maintainable forms with metadata str
 defmodule MyForm do
   use FormBuilderDSL
 
-  defenum :status, [:active, :inactive, :archived]
+  defenum :status, [:approved, :rejected, :pending]
 
   form :user do
     text :name
