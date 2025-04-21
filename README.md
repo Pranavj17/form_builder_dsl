@@ -36,6 +36,37 @@ defmodule MyForm do
 end
 ```
 
+```Output
+  [
+    %FormBuilderDSL.Field{
+      key: :status,
+      label: "Status",
+      placeholder: false,
+      type: :select,
+      options: [
+        {"Approved", "approved"},
+        {"Rejected", "rejected"},
+        {"Pending", "pending"}
+      ],
+      required: false,
+      default: false,
+      validations: false,
+      disabled: false
+    },
+    %FormBuilderDSL.Field{
+      key: :id,
+      label: "Id",
+      placeholder: false,
+      type: :text,
+      options: [],
+      required: false,
+      default: false,
+      validations: false,
+      disabled: false
+    }
+  ]
+```
+
 ---
 
 ## 📦 Installation
