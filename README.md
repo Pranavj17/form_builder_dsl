@@ -36,8 +36,8 @@ defmodule MyForm do
 
   form :user do
     text :name
-    email(:email)
-    password(:password)
+    email :email
+    password :password
     select :status, options: status_labeled_options()
   end
 end
@@ -51,8 +51,8 @@ defmodule UserForm do
 
   form :user do
     text :name, required: true, validations: [min_length: 3, max_length: 50]
-    email(:email, required: true, validations: [format: :email])
-    number(:age, required: true, validations: [min: 18, max: 100])
+    email :email, required: true, validations: [format: :email]
+    number :age, required: true, validations: [min: 18, max: 100]
     select :role, required: true, options: role_labeled_options()
   end
 end
@@ -85,35 +85,35 @@ defmodule ProductForm do
   form :product do
     # Text inputs
     text :name, required: true, placeholder: "Enter product name"
-    email(:contact_email, required: true)
-    password(:admin_password)
-    number(:price, min: 0, max: 1000, step: 0.01)
-    tel(:phone_number)
-    url(:website)
-    search(:keywords)
+    email :contact_email, required: true
+    password :admin_password
+    number :price, min: 0, max: 1000, step: 0.01
+    tel :phone_number
+    url :website
+    search :keywords
 
     # Date and time inputs
-    date(:release_date)
-    time(:available_time)
+    date :release_date
+    time :available_time
     date_time :last_updated
-    month(:target_month)
-    week(:target_week)
+    month :target_month
+    week :target_week
 
     # Selection inputs
     select :category, options: categories_labeled_options()
-    multi_select(:tags, options: categories_labeled_options())
-    radio(:status, options: status_labeled_options())
-    checkbox(:featured)
-    switch(:active)
+    multi_select :tags, options: categories_labeled_options()
+    radio :status, options: status_labeled_options()
+    checkbox :featured
+    switch :active
 
     # File inputs
-    file(:document, accept: ".pdf,.doc,.docx")
-    image(:product_image)
+    file :document, accept: ".pdf,.doc,.docx"
+    image :product_image
 
     # Special inputs
-    color(:theme_color)
-    range(:rating, min: 1, max: 5, step: 1)
-    hidden(:internal_id)
+    color :theme_color
+    range :rating, min: 1, max: 5, step: 1
+    hidden :internal_id
   end
 end
 ```
@@ -126,7 +126,7 @@ defmodule SettingsForm do
 
   form :settings do
     text :name, default: "John Doe"
-    email(:email, default: "john@example.com")
+    email:email, default: "john@example.com"
     select :role, default: "user", options: role_labeled_options()
   end
 end
@@ -140,7 +140,7 @@ defmodule ReadOnlyForm do
 
   form :user do
     text :name, disabled: true
-    email(:email, disabled: true)
+    email :email, disabled: true
     select :role, disabled: true, options: role_labeled_options()
   end
 end
@@ -203,10 +203,6 @@ To keep the DSL syntax clean and bracket-free, add the following to your `.forma
     defenum: 2,
     text: 1,
     text: 2,
-    select: 1,
-    select: 2,
-    date_time: 1,
-    date_time: 2,
     email: 1,
     email: 2,
     password: 1,
@@ -223,10 +219,14 @@ To keep the DSL syntax clean and bracket-free, add the following to your `.forma
     date: 2,
     time: 1,
     time: 2,
+    date_time: 1,
+    date_time: 2,
     month: 1,
     month: 2,
     week: 1,
     week: 2,
+    select: 1,
+    select: 2,
     multi_select: 1,
     multi_select: 2,
     radio: 1,
