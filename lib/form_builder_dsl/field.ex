@@ -9,10 +9,15 @@ defmodule FormBuilderDSL.Field do
     :label,
     :placeholder,
     :type,
+    :min,
+    :max,
+    :step,
+    :accept,
     options: [],
     required: false,
     default: nil,
     validations: [],
-    disabled: false
+    disabled: false,
+    multiple: false
   ]
 end
